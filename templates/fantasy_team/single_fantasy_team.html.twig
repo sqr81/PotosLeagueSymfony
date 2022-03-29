@@ -1,0 +1,36 @@
+<div class="col-md-4">
+	<div id="cardFantasyTeam" style="text-align: center; color:white; mt-2">
+		<div class="cardTitle">
+			<h2>{{fantasyTeam.name}}</h2>
+		</div>
+		<div class="image-crop">
+			<a href="{{path('fantasyTeam',{'slug' : fantasyTeam.slug})}}">
+				<img id="avatar" src="/uploads/fantasyTeams/{{ fantasyTeam.picture }}" alt="{{fantasyTeam.name}}"></img>
+		</a>
+	</div>
+	<div id="bio">
+		<p>Coach:
+			{{fantasyTeam.owner}}
+		</p>
+	</div>
+	<div id="stats">
+		<div class="col">
+			<p class="stat">108</p>
+			<p class="label">Wins</p>
+		</div>
+		<div class="col">
+			<p class="stat">457</p>
+			<p class="label">Losts</p>
+		</div>
+		<div class="col">
+			<p class="stat">2</p>
+			<p class="label">Champs</p>
+		</div>
+	</div>
+	<div id="buttons">
+		<a href="{{path('fantasyTeam',{'slug' : fantasyTeam.slug})}}">
+			<button>Voir plus</button>
+		</a>
+		<button id="msg">Message</button>
+	</div>
+</div>

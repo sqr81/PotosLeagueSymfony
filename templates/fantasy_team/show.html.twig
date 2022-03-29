@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-5">
+			<img src="/uploads/fantasyTeams/{{ fantasy_team.picture }}" alt="{{ fantasy_team.name }}" class="img-fluid">
+		</div>
+		<div class="col-md-7 my-auto">
+			<h1>{{ fantasy_team.name }}</h1>
+			<hr>
+			<h4>Coach:
+				{{fantasy_team.owner}}</h4>
+			<a href="" class="btn btn-primary">Statistiques</a>
+		</div>
+	</div>
+	
+{% endblock %}
