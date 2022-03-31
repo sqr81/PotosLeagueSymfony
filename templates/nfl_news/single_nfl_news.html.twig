@@ -1,0 +1,28 @@
+
+
+<div class="newsCard" style="width: 18rem; height: 38rem">
+	<div class="card-header d-flex flex-row">
+		<div class="card-img" style="width:50%">
+			<img class="card-img-top" src="assets/img/logoNfl/nfl.png" style="width:100px" alt="Card image cap">
+		</div>
+		<div class="card-timeAgo d-flex align-items-end flex-column" style="width:50%; vertical-align">
+			<div class="">
+				<span class="badge badge-pill badge-primary">{{ data.Categories }}</span>
+			</div>
+			<div class="">
+				<span class="badge badge-pill badge-info">{{ data.Team }}</span>
+			</div>
+			<div class="">
+				<span class="badge badge-pill badge-success">{{ data.TimeAgo }}</span>
+			</div>
+		</div>
+	</div>
+	<div class="card-body">
+		<h5 class="card-title">{{ data.Title }}</h5>
+		<p class="newsCard-text" style="height: 19rem">
+			{{ data.Content }}</p>
+		<div class="newsCardButton">
+			<a href="{{ data.OriginalSourceUrl }}" class="btn btn-primary">Voir plus</a>
+		</div>
+	</div>
+</div>

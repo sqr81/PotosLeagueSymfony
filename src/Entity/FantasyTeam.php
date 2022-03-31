@@ -29,7 +29,7 @@ class FantasyTeam
 
     /**
      * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="owner_id", referenceColumnName="id")
      */
     private $owner;
 
@@ -93,6 +93,6 @@ class FantasyTeam
 
     public function __toString()
     {
-        return $this->getSlug();
+        return $this->getOwner();
     }
 }

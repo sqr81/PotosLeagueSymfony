@@ -14,7 +14,10 @@
 		<!-- Bootstrap core CSS -->
 		<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('assets/css/fantasyTeams.css') }}" rel="stylesheet">
-		<link href="{{ asset('assets/css/userHomeCard.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/css/userCard.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/css/nflTeamsTable.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/css/nflNewsCard.css') }}" rel="stylesheet">
+		
 		<style>
 			.bd-placeholder-img {
 				font-size: 1.125rem;
@@ -50,13 +53,16 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{path('fantasyTeams')}}">Les équipes</a>
+							<a class="nav-link" href="{{path('fantasyTeams')}}">Equipes</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Les coachs</a>
+							<a class="nav-link" href="#">Coachs</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Statistiques</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{path('nflTeams')}}">NFL</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Pronostiques</a>
@@ -84,57 +90,57 @@
 						{% for key,header in headers %}
 							<li data-target="#myCarousel" data-slide-to="{{ key }}" {% if key ==0 %} class="active">
 							{% endif %}
-						</li>
-					{% endfor %}
-				</ol>
-				<div class="carousel-inner">
-					{% for key,header in headers %}
-						<div class="carousel-item {% if key == 0 %} active{% endif %}" style="background: url('/uploads/headers/{{ header.picture }}');background-size: cover;">
-							<div class="container">
-								<div class="carousel-caption text-left" style="color:black">
-									<h1>{{ header.title }}</h1>
-									<p>{{ header.content }}</p>
-									<p>
-										<a class="btn btn-lg btn-info" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a>
-									</p>
+							</li>
+						{% endfor %}
+					</ol>
+					<div class="carousel-inner">
+						{% for key,header in headers %}
+							<div class="carousel-item {% if key == 0 %} active{% endif %}" style="background: url('/uploads/headers/{{ header.picture }}');background-size: cover;">
+								<div class="container">
+									<div class="carousel-caption text-left" style="color:black">
+										<h1>{{ header.title }}</h1>
+										<p>{{ header.content }}</p>
+										<p>
+											<a class="btn btn-lg btn-info" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a>
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
-					{% endfor %}
-				</div>
+						{% endfor %}
+					</div>
 
-				<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
-		{% endif %}
+					<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			{% endif %}
 
 		<!-- Marketing messaging and featurettes
-														    ================================================== -->
+																		    ================================================== -->
 		<!-- Wrap the rest of the page in another container to center all the content. -->
 
-		<div class="container marketing {% if block ('carousel') is not defined %}mt-5{% endif %}"> {% block content %}{% endblock %}
+			<div class="container marketing {% if block ('carousel') is not defined %}mt-5{% endif %}"> 
+			{% block content %}{% endblock %}
 			</div>
-			<!-- /.container -->
-
-			<!-- FOOTER -->
+		
 			<footer class="container">
 				<p class="float-right">
-					<a href="#">Back to top</a>
+					<a href="#">Retour au sommet</a>
 				</p>
 				<p>&copy; 2017-2020 Company, Inc. &middot;
 					<a href="#">Privacy</a>
 					&middot;
 					<a href="#">Terms</a>
 				</p>
-			</footer>
-		</body>
-	</html>
-</main>
+			</footer>				
+		</main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script></body></html>
+<script src="{{ asset('assets/js/api.js') }}" rel="stylesheet"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+</body>
+</html>

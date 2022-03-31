@@ -1,0 +1,17 @@
+.newsCard {
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.newsCard-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+} 
+
+.newsCardButton {
+  display: flex; 
+  justify-content: center;
+  margin-bottom: 10px;
+}

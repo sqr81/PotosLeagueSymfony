@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les équipes Nfl - Poto's League{% endblock %}
+
+{% block content %}
+	<div container>
+		<div class="nflTeam_caption">
+			<img src="/assets/img/logoNfl/nfl.png" style="width: 50px;position: relative;/* align-content: center; */bottom: 3px;left: -7px;">
+			</img>La NFL
+		</div>
+		<div id="nflTeam_table">
+				<div class="nflTeam_header-row nflTeam_row">
+					<span class="nflTeam_cell nflTeam_primary">Equipe</span>
+					<span class="nflTeam_cell">Nom</span>
+					<span class="nflTeam_cell">Ville</span>
+					<span class="nflTeam_cell">Site</span>
+				</div>
+                {% for nflTeam in nflTeams %}
+				<div class="nflTeam_row">
+					<input type="radio" name="expand">
+					<span class="nflTeam_cell nflTeam_primary" data-label="Vehicle" style="text-align:center">
+                    <img id="avatar" style="width:60px; height:60px" src="/uploads/users/{{ nflTeam.picture }}" alt="{{nflTeam.name}}"></img></span>						
+					<span class="nflTeam_cell" data-label="Exterior">{{ nflTeam.name }}</span>
+					<span class="nflTeam_cell" data-label="Interior">{{ nflTeam.city }}</span>
+					<span class="nflTeam_cell" data-label="Engine">2.5L H4 Turbo</span>
+					<span class="nflTeam_cell" data-label="Trans"></span>			
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
