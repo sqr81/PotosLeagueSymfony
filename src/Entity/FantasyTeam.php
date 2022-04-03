@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FantasyTeamRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=FantasyTeamRepository::class)
@@ -29,12 +30,13 @@ class FantasyTeam
 
     /**
      * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="owner_id", referenceColumnName="id")
+     * @ORM\JoinColumn(name="owner_id")
      */
     private $owner;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(pattern="/^[a-z0-9\-]+$/")
      */
     private $slug;
 
@@ -93,6 +95,7 @@ class FantasyTeam
 
     public function __toString()
     {
-        return $this->getOwner();
+        return $this->getName();
     }
+
 }
