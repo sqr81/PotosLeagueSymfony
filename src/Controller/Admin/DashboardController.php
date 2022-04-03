@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\NflTeam;
 use App\Entity\FantasyTeam;
+use App\Entity\FantasyTeamStatistic;
 use App\Entity\User;
 use App\Entity\Header;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -19,7 +20,8 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return parent::index();
+        //return parent::index();
+        return $this->render('admin/dashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
@@ -35,5 +37,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Equipes fantasy', 'fas fa-users', FantasyTeam::class);
         yield MenuItem::linkToCrud('Equipes NFL', 'fa fa-heart', NflTeam::class);
         yield MenuItem::linkToCrud('Header', 'fa fa-desktop', Header::class);
+        //yield MenuItem::linkToCrud('Statistiques fantasy', 'fa fa-desktop', FantasyTeamStatistic::class);
     }
 }

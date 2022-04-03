@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stats des équipes Nfl - Poto's League
+{% endblock %}
+
+{% block content %}
+	<div container>
+		<div class="nflTeam_caption">
+			<img src="/assets/img/logoNfl/nfl.png" style="width: 50px;position: relative;/* align-content: center; */bottom: 3px;left: -7px;">
+		</img>La NFL
+	</div>
+	<div id="nflTeam_table">
+		<div class="nflTeam_header-row nflTeam_row">
+			<span class="nflTeam_cell nflTeam_primary">Equipes</span>
+			<span class="nflTeam_cell">Conf</span>
+			<span class="nflTeam_cell">Div</span>
+			<span class="nflTeam_cell">V</span>
+			<span class="nflTeam_cell">D</span>
+			<span class="nflTeam_cell">T</span>
+			<span class="nflTeam_cell">PF</span>
+			<span class="nflTeam_cell">PA</span>
+			<span class="nflTeam_cell">TDs</span>
+			<span class="nflTeam_cell">Div Ranks</span>
+			<span class="nflTeam_cell">Conf Ranks</span>
+		</div>
+		{% for data in datas %}
+			<div class="nflTeam_row">
+				<input type="radio" name="expand">
+				<span class="nflTeam_cell nflTeam_primary" data-label="Vehicle" style="text-align:center">{{data.Name}}</span>
+				<span class="nflTeam_cell" data-label="Exterior">{{data.Conference}}</span>
+				<span class="nflTeam_cell" data-label="Exterior">{{data.Division}}</span>
+				<span class="nflTeam_cell" data-label="Exterior">{{data.Wins}}</span>
+				<!--<img id="avatar" style="width:60px; height:60px" src="/uploads/users/" alt=""></img>-->
+				<span class="nflTeam_cell" data-label="Interior">{{ data.Losses}}</span>
+				<span class="nflTeam_cell" data-label="Engine">{{ data.Ties}}</span>
+				<span class="nflTeam_cell" data-label="Trans">{{ data.PointsFor}}</span>
+				<span class="nflTeam_cell" data-label="Exterior">{{data.PointsAgainst}}</span>
+				<span class="nflTeam_cell" data-label="Exterior">{{data.Touchdowns}}</span>
+				<span class="nflTeam_cell" data-label="Exterior">{{data.DivisionRank}}</span>
+				<span class="nflTeam_cell" data-label="Exterior" style="font-weight-bold">{{data.ConferenceRank}}</span>
+			</div>
+		{% endfor %}
+	</div>
+</div>{% endblock %}

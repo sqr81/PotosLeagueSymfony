@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les news Nfl - Poto's League{% endblock %}
+
+{% block content %}
+<div class="container">
+		<div class="row">
+			<h2>Les dernières news NFL</h2>
+		</div>
+		<div class="card-deck">
+			{% for data in datas %}
+				<div class="col-md-4">
+					{% include "nfl_news/single_nfl_news.html.twig" %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

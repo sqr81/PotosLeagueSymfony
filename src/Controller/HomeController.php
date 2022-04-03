@@ -26,16 +26,20 @@ class HomeController extends AbstractController
      */
     public function index(SessionInterface $session, CallApiService $callApiService): Response
     {
-        $users = $this->entityManager->getRepository(User::class)->findByIsBest(1);
+        $bestUsers = $this->entityManager->getRepository(User::class)->findByIsBest(1);
         $headers = $this->entityManager->getRepository(Header::class)->findAll();
-        
+        $fantasyTeam = $this->entityManager->getRepository(FantasyTeam::class)->findOneByOwner($bestUsers);
         //dd($callApiService->getNflData());
-        dd($callApiService->getNflData());
-
+        //dd($callApiService->getNflData([]));
+        //dd($callApiService->getTeamSeasonData());
+        //dd($callApiService->getNflStandings());
         return $this->render('home/index.html.twig',[
-            'users' => $users,
+            'bestUsers' => $bestUsers,
             'headers' => $headers,
-            'datas' => $callApiService->getNflData(),
+            'fantasyTeam' => $fantasyTeam,
+            'datas' => $callApiService->getNflNewsDatas(),
+            'dataBySeason' =>$callApiService->getTeamSeasonData(),
+            'standings' => $callApiService->getNflStandings(),            
         ]);
     }
     

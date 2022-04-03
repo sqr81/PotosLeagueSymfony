@@ -30,6 +30,7 @@ class FantasyTeamCrudController extends AbstractCrudController
             ->setRequired(false),
  
             AssociationField::new('owner'),
+            //AssociationField::new('statistic'),
         ];
     }
     

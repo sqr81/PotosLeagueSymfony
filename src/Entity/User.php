@@ -68,6 +68,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isBest;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $country_picture;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created_at;
+
     public function __construct()
     {
         $this->nflTeams = new ArrayCollection();
@@ -216,7 +226,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, NflTeam>
+     * @return Collection<string, NflTeam>
      */
     public function getNflTeams(): Collection
     {
@@ -253,6 +263,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsBest(bool $isBest): self
     {
         $this->isBest = $isBest;
+
+        return $this;
+    }
+
+    public function getCountryPicture(): ?string
+    {
+        return $this->country_picture;
+    }
+
+    public function setCountryPicture(?string $country_picture): self
+    {
+        $this->country_picture = $country_picture;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }
