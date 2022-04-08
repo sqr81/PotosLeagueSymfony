@@ -33,6 +33,7 @@ class HomeController extends AbstractController
         //dd($callApiService->getNflData([]));
         //dd($callApiService->getTeamSeasonData());
         //dd($callApiService->getNflStandings());
+        
         return $this->render('home/index.html.twig',[
             'bestUsers' => $bestUsers,
             'headers' => $headers,

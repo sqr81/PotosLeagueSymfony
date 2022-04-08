@@ -15,13 +15,13 @@ class FantasyTeamCrudController extends AbstractCrudController
     {
         return FantasyTeam::class;
     }
-
-    
+   
     public function configureFields(string $pageName): iterable
     {
         return [
             TextField::new('name'),
             SlugField::new('slug')
+            ->hideOnForm()
             ->setTargetFieldName('name'),
             ImageField::new('picture')
             ->setBasePath('uploads/fantasyTeams')

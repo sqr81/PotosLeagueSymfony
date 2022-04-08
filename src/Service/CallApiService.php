@@ -13,24 +13,30 @@ class CallApiService
         $this->client = $client;
     }
     
+    //les joueurs blesses
+    public function getNflInjuredPlayer(): array
+    {
+        return $this->getApi('projections/json/InjuredPlayers?');
+    }
+
     //les news nfl
     public function getNflNewsDatas(): array
     {
-        return $this->getApi('News?');
+        return $this->getApi('scores/json/News?');
     }
 
     //les stats par équipes et par saison
     public function getTeamSeasonData(): array
     {   
         $season="2021REG?";
-        return $this->getApi('TeamSeasonStats/' .$season);
+        return $this->getApi('scores/json/TeamSeasonStats/' .$season);
     }
 
     //classement nfl
     public function getNflStandings(): array
     {
         $season="2021REG?";
-        return $this->getApi('standings/' .$season);
+        return $this->getApi('scores/json/standings/' .$season);
     }
 
     //la fonction mère
@@ -40,7 +46,7 @@ class CallApiService
 
         $response = $this->client->request(
             'GET',
-            'https://api.sportsdata.io/v3/nfl/scores/json/' .$var.$key         
+            'https://api.sportsdata.io/v3/nfl/' .$var.$key         
         );
 
         return $response->toArray();

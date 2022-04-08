@@ -7,22 +7,22 @@
 					<a class="navbar-brand" href="#">Hidden brand</a>
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item active">
-							<a class="nav-link" href="{{ path('home')}}">Home
+							<a class="nav-link" href="{{ path('home')}}"><img src="assets/img/icones/stadium.png"></img> Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{path('fantasyTeams')}}">Equipes</a>
+							<a class="nav-link" href="{{path('fantasyTeams')}}"><img src="assets/img/icones/team.png"></img> Equipes</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Coachs</a>
+							<a class="nav-link" href="#"><img src="assets/img/icones/whistle.png"></img> Coachs</a>
 						</li>
 						<li class="nav-item">
-						<a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Statistiques</a>
+						<a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><img src="assets/img/icones/trend.png"></img> Statistiques</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Nfl
+								<img src="assets/img/icones/nfl.png"></img> Nfl
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li>
@@ -30,6 +30,9 @@
 								</li>
 								<li>
 									<a class="dropdown-item" href="{{path('nflNews')}}">Les news</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{path('nflInjuredPlayer')}}">Les joueurs blessés</a>
 								</li>
 								<li class="dropdown-submenu">
 									<a class="dropdown-item dropdown-toggle" href="#">Les stats</a>
@@ -71,8 +74,11 @@
 						</li>
 					</ul>
 					{% if app.user %}
+
 						Hello
-						{{app.user.firstname}}|
+						{{app.user.firstname}}
+						<img src="/uploads/users/pictureProfile/{{ app.user.picture }}"
+						style="width: 30px;border-radius: 50%;">|
 						<a href="{{ path('account')}}">Mon compte</a>
 						|
 						<a href="{{ path('app_logout')}}">Déconnexion</a>

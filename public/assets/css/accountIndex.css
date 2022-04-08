@@ -1,0 +1,27 @@
+.account-item{
+    background-color: lightgray;
+    height:8rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 15px;
+   
+}
+.account-item a{
+    color: #f16d0e;
+    margin-top: 2rem;
+}
+
+.dataUser img{
+    height: 80px;
+}
+
+.locationUser img{
+    height: 100%;
+}
+
+.pictureProfile img{
+   height: 180px;
+}
+
+
+

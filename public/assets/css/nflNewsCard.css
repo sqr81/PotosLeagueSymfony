@@ -2,12 +2,14 @@
   overflow: hidden;
   border-radius: 15px;
   border: 1px solid black;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  box-shadow: 15px 15px 15px;
 }
 
 .newsCard-text {
   overflow: hidden;
   text-overflow: ellipsis;
+  height: 12rem;
 } 
 
 .newsCardButton {
@@ -15,3 +17,4 @@
   justify-content: center;
   margin-bottom: 10px;
 }
+
