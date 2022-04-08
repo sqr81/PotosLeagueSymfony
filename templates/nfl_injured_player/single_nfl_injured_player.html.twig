@@ -1,0 +1,51 @@
+<div class="newsCard" style="width: 18rem; height: 30rem">
+  <div class="card-header d-flex flex-row">
+    <div class="card-img" style="width:50%">
+      <img class="card-img-top"
+        src="{{ data.PhotoUrl }}"
+        style="width:100px"
+        alt="Card image cap" />
+    </div>
+    <div class="card-timeAgo d-flex align-items-end flex-column"
+      style="width:50%; vertical-align">
+      <div class="">
+        <span class="badge badge-pill badge-primary">
+          Equipe: {{ data.Team }}
+        </span>
+      </div>
+      <div class="">
+        <span class="badge badge-pill badge-info">
+          Position: {{ data.Position }}
+        </span>
+      </div>
+      <div class="">
+        <span class="badge badge-pill badge-danger">
+          Status: {{ data.Status }}
+        </span>
+      </div>
+      <div class="number">
+        <h3>
+          #{{ data.Number }}
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ data.FirstName }} {{ data.LastName }}
+    </h5>
+    <p class="newsCard-text">
+      Age: {{ data.Age }}<br />
+      Collège: {{ data.College }}<br />
+      Expérience: {{ data.Experience }} ans<br/>
+      Taille: {{ data.Height }}<br />
+      Poids: {{ data.Weight }}<br />
+      Prochain adversaire: {{ data.UpcomingGameOpponent }}<br />
+      Bye: {{ data.ByeWeek }}<br/>
+
+    </p>
+    <div class="newsCardButton">
+      <a href="#" class="btn btn-primary">Voir plus</a>
+    </div>
+  </div>
+</div>

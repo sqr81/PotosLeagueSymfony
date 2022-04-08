@@ -39,7 +39,7 @@ class RegisterType extends AbstractType
                 'label' => 'Ton équipe NFL préférée',
                 'attr' => [
                     'placeholder' => 'Merci de saisir ton équipe NFL préférée'
-                ]
+                ],
             ])
             ->add('password', RepeatedType::class, [ 
                 'type' =>PasswordType::class,

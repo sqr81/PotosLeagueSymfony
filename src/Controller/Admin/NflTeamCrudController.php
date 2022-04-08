@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -23,12 +24,20 @@ class NflTeamCrudController extends AbstractCrudController
             TextField::new('name'),
             TextField::new('city'),
             ImageField::new('picture')
-                ->setBasePath('uploads/users')
-                ->setUploadDir('public/uploads/users')
+                ->setBasePath('uploads/nflTeams')
+                ->setUploadDir('public/uploads/nflTeamss')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
-            AssociationField::new('fan'),
+            AssociationField::new('users'),
         ];
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPaginatorPageSize(17);
     }
     
 }
+
+

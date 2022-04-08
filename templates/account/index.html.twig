@@ -1,16 +1,88 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon compte - Poto's League
+{% block title %}
+  Mon compte - Poto's League
 {% endblock %}
 
 {% block content %}
-	<h1>Mon compte</h1>
-	<p>Bienvenue <strong>{{ app.user.firstname }}</strong> dans ton compte.<br/>
-    C'est dans cet espace que tu vas pouvoir gérer l'ensemble de tes informations 
+  <link href="{{ asset('assets/css/accountIndex.css') }}" rel="stylesheet" />
+
+  <h1>
+    Mon compte
+  </h1>
+  <p>
+    Bienvenue <strong>{{ app.user.firstname }}</strong> dans ton compte.<br />
+    C'est dans cet espace que tu vas pouvoir gérer l'ensemble de tes informations
     personnelles.
-    </p>
-    <hr>
+  </p>
+  <hr />
+  <br />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="row">
+          <div class="pictureProfile img-thumbnail" style="max-width: 18rem;">
+            <img src="/uploads/users/pictureProfile/{{ app.user.picture }}"
+              alt="profilePicture" />
+          </div>
+        </div>
+        <div class="dataUser row">
+          Prénom: {{ app.user.firstname }}<br />
+          Nom: {{ app.user.lastname }}<br />
+          Mail: {{ app.user.email }}<br />
+          Membre depuis le: {{ app.user.createdAt|date('d/m/Y') }}<br />
+          <img src="/uploads/nflTeams/{{ app.user.getNflTeam.picture}}">
+        </div>
+      </div>
+      <div class="locationUser col-md-2">
+        <img src="/uploads/users/location/{{ app.user.countryPicture }}"
+          alt="location" />
+      </div>
+    </div>
+  </div>
 
+    <div class="row">
+      <div class="col-md-3">
+        <div class="account-item text-center">
+          <img src="{{ asset('assets/img/icones/padlock.png') }}"
+            alt="cadenas" /><br />
+          <a href="{{ path('account_password') }}">
+            Modifier mon mot de passe
+          </a><br />
+        </div>
+      </div>
+      <div class="col-md-3">
+        {% if is_granted('ROLE_ADMIN') %}
+          <div class="account-item text-center">
+            <img src="{{ asset('assets/img/icones/admin.png') }}" alt="admin" /><br />
+            <a href="/admin">Administrateur</a><br />
+          </div>
+        {% endif %}
+      </div>
+      <div class="col-md-3">
+        <div class="account-item text-center">
+          <img src="{{ asset('assets/img/icones/list.png') }}"
+            alt="cadenas" /><br />
+          <a href="#">          
+            Modifier mon compte
+          </a><br />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="account-item text-center">
+          <img src="{{ asset('assets/img/icones/ball.png') }}"
+            alt="cadenas" /><br />
+          <a href="#">
+            Modifier mon équipe fantasy
+          </a>
+          <div class="createTeamButton">
+            <a href="#" class="btn btn-sm btn-primary">Créer mon équipe</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
 
-	{% endblock %}
-
+  
+{% endblock %}

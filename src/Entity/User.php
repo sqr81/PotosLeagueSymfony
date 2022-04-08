@@ -54,16 +54,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $picture;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $nflTeam;
-
-    /**
-     * @ORM\OneToMany(targetEntity=NflTeam::class, mappedBy="fan")
-     */
-    private $nflTeams;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $isBest;
@@ -78,10 +68,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $created_at;
 
-    public function __construct()
-    {
-        $this->nflTeams = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=NflTeam::class, inversedBy="users")
+     */
+    private $nflteam;
+
 
     public function getId(): ?int
     {
@@ -208,52 +199,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getNflTeam(): ?string
-    {
-        return $this->nflTeam;
-    }
-
-    public function setNflTeam(?string $nflTeam): self
-    {
-        $this->nflTeam = $nflTeam;
-
-        return $this;
-    }
-
     public function __toString()
     {
     return $this->getFirstname();
     }
 
-    /**
-     * @return Collection<string, NflTeam>
-     */
-    public function getNflTeams(): Collection
-    {
-        return $this->nflTeams;
-    }
-
-    public function addNflTeam(NflTeam $nflTeam): self
-    {
-        if (!$this->nflTeams->contains($nflTeam)) {
-            $this->nflTeams[] = $nflTeam;
-            $nflTeam->setFan($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNflTeam(NflTeam $nflTeam): self
-    {
-        if ($this->nflTeams->removeElement($nflTeam)) {
-            // set the owning side to null (unless already changed)
-            if ($nflTeam->getFan() === $this) {
-                $nflTeam->setFan(null);
-            }
-        }
-
-        return $this;
-    }
+    
 
     public function getIsBest(): ?bool
     {
@@ -287,6 +238,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAt(?\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getNflteam(): ?NflTeam
+    {
+        return $this->nflteam;
+    }
+
+    public function setNflteam(?NflTeam $nflteam): self
+    {
+        $this->nflteam = $nflteam;
 
         return $this;
     }
